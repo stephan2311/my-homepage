@@ -340,6 +340,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
+    interface HomepageBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+    }
+    type ContentfulHomepageBanner implements Node & HomepageBanner & HomepageBlock @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
+    }
   `)
 
   // CMS-specific types for Homepage
